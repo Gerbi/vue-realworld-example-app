@@ -1,23 +1,41 @@
 <template>
   <!-- Used when user is also author -->
-  <span v-if="canModify">
-    <router-link class="btn btn-sm btn-outline-secondary" :to="editArticleLink">
-      <i class="ion-edit"></i> <span>&nbsp;Edit Article</span>
+  <span v-if="canModify" class="flex">
+    <router-link
+      class="px-2 py-1 flex items-center text-sm text-blue-500 border border-blue-500 rounded-lg"
+      :to="editArticleLink"
+    >
+      <svg
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        class="w-4 h-4 text-blue-500"
+      >
+        <path
+          d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+        ></path>
+      </svg>
+      <span>&nbsp;Edit Article</span>
     </router-link>
     <span>&nbsp;&nbsp;</span>
-    <button class="btn btn-outline-danger btn-sm" @click="deleteArticle">
+    <button
+      class="px-2 py-1 text-sm text-red-500 border border-red-500 rounded-lg"
+      @click="deleteArticle"
+    >
       <i class="ion-trash-a"></i> <span>&nbsp;Delete Article</span>
     </button>
   </span>
   <!-- Used in ArticleView when not author -->
-  <span v-else>
-    <button class="btn btn-sm btn-outline-secondary" @click="toggleFollow">
+  <span v-else class="flex">
+    <button
+      class="px-2 py-1 text-sm text-gray-500 border border-gray-500 rounded-lg"
+      @click="toggleFollow"
+    >
       <i class="ion-plus-round"></i> <span>&nbsp;</span>
       <span v-text="followUserLabel" />
     </button>
     <span>&nbsp;&nbsp;</span>
     <button
-      class="btn btn-sm"
+      class="px-2 py-1 text-sm text-green-500 border border-green-500 rounded-lg"
       @click="toggleFavorite"
       :class="toggleFavoriteButtonClasses"
     >

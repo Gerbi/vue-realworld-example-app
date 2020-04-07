@@ -1,40 +1,40 @@
 <template>
-  <div class="editor-page">
+  <div class="p-4 mb-10 rounded-lg bg-background-secondary">
     <div class="container page">
       <div class="row">
         <div class="col-md-10 offset-md-1 col-xs-12">
           <RwvListErrors :errors="errors" />
           <form @submit.prevent="onPublish(article.slug)">
             <fieldset :disabled="inProgress">
-              <fieldset class="form-group">
+              <fieldset class="mb-4">
                 <input
                   type="text"
-                  class="form-control form-control-lg"
+                  class="bg-gray-200 appearance-none border-2 border-border-color-primary rounded-md bg-background-primary w-full py-2 px-4 text-copy-secondary leading-tight focus:outline-none focus:bg-background-primary focus:border-blue-500"
                   v-model="article.title"
                   placeholder="Article Title"
                 />
               </fieldset>
-              <fieldset class="form-group">
+              <fieldset class="mb-4">
                 <input
                   type="text"
-                  class="form-control"
+                  class="bg-gray-200 appearance-none border-2 border-border-color-primary rounded-md bg-background-primary w-full py-2 px-4 text-copy-secondary leading-tight focus:outline-none focus:bg-background-primary focus:border-blue-500"
                   v-model="article.description"
                   placeholder="What's this article about?"
                 />
               </fieldset>
-              <fieldset class="form-group">
+              <fieldset class="mb-4">
                 <textarea
-                  class="form-control"
+                  class="bg-gray-200 appearance-none border-2 border-border-color-primary rounded-md bg-background-primary w-full py-2 px-4 text-copy-secondary leading-tight focus:outline-none focus:bg-background-primary focus:border-blue-500"
                   rows="8"
                   v-model="article.body"
                   placeholder="Write your article (in markdown)"
                 >
                 </textarea>
               </fieldset>
-              <fieldset class="form-group">
+              <fieldset class="mb-4">
                 <input
                   type="text"
-                  class="form-control"
+                  class="bg-gray-200 appearance-none border-2 border-border-color-primary rounded-md bg-background-primary w-full py-2 px-4 text-copy-secondary leading-tight focus:outline-none focus:bg-background-primary focus:border-blue-500"
                   placeholder="Enter tags"
                   v-model="tagInput"
                   @keypress.enter.prevent="addTag(tagInput)"
@@ -51,13 +51,15 @@
                 </div>
               </fieldset>
             </fieldset>
-            <button
-              :disabled="inProgress"
-              class="btn btn-lg pull-xs-right btn-primary"
-              type="submit"
-            >
-              Publish Article
-            </button>
+            <div class="flex justify-end">
+              <button
+                :disabled="inProgress"
+                class="px-4 py-1 text-white bg-blue-500 rounded-lg"
+                type="submit"
+              >
+                Publish Article
+              </button>
+            </div>
           </form>
         </div>
       </div>

@@ -1,8 +1,16 @@
 <template>
-  <div>
-    <div v-if="isLoading" class="article-preview">Loading articles...</div>
+  <div class="mb-4">
+    <div
+      v-if="isLoading"
+      class="text-center bg-white py-12 text-copy-primary text-xl"
+    >
+      Loading articles...
+    </div>
     <div v-else>
-      <div v-if="articles.length === 0" class="article-preview">
+      <div
+        v-if="articles.length === 0"
+        class="text-center bg-white py-12 text-copy-primary text-xl"
+      >
         No articles are here... yet.
       </div>
       <RwvArticlePreview

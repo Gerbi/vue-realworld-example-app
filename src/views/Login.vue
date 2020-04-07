@@ -1,10 +1,12 @@
 <template>
-  <div class="auth-page">
+  <div class="p-4 mb-10 rounded-lg bg-background-secondary">
     <div class="container page">
       <div class="row">
-        <div class="col-md-6 offset-md-3 col-xs-12">
-          <h1 class="text-xs-center">Sign in</h1>
-          <p class="text-xs-center">
+        <div>
+          <h1 class="mb-2 text-2xl font-semibold text-center text-copy-primary">
+            Sign in
+          </h1>
+          <p class="mb-4 text-center text-blue-500">
             <router-link :to="{ name: 'register' }">
               Need an account?
             </router-link>
@@ -13,25 +15,27 @@
             <li v-for="(v, k) in errors" :key="k">{{ k }} {{ v | error }}</li>
           </ul>
           <form @submit.prevent="onSubmit(email, password)">
-            <fieldset class="form-group">
+            <fieldset class="mb-4">
               <input
-                class="form-control form-control-lg"
+                class="w-full px-4 py-2 leading-tight bg-gray-200 border-2 rounded-md appearance-none border-border-color-primary bg-background-primary text-copy-secondary focus:outline-none focus:bg-background-primary focus:border-blue-500"
                 type="text"
                 v-model="email"
                 placeholder="Email"
               />
             </fieldset>
-            <fieldset class="form-group">
+            <fieldset class="mb-4">
               <input
-                class="form-control form-control-lg"
+                class="w-full px-4 py-2 leading-tight bg-gray-200 border-2 rounded-md appearance-none border-border-color-primary bg-background-primary text-copy-secondary focus:outline-none focus:bg-background-primary focus:border-blue-500"
                 type="password"
                 v-model="password"
                 placeholder="Password"
               />
             </fieldset>
-            <button class="btn btn-lg btn-primary pull-xs-right">
-              Sign in
-            </button>
+            <div class="flex justify-end">
+              <button class="px-4 py-1 text-white bg-blue-500 rounded-lg">
+                Sign in
+              </button>
+            </div>
           </form>
         </div>
       </div>

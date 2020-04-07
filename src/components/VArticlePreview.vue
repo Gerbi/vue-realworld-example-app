@@ -1,10 +1,10 @@
 <template>
-  <div class="article-preview">
+  <div class="bg-background-secondary p-4 rounded-lg mb-4">
     <RwvArticleMeta isPreview :article="article" />
-    <router-link :to="articleLink" class="preview-link">
-      <h1 v-text="article.title" />
-      <p v-text="article.description" />
-      <span>Read more...</span>
+    <router-link :to="articleLink" class="text-copy-primary focus:outline-none">
+      <h1 class="text-lg text-copy-primary" v-text="article.title" />
+      <p v-text="article.description" class="text-sm text-copy-secondary" />
+      <span class="text-blue-500">Read more...</span>
       <TagList :tags="article.tagList" />
     </router-link>
   </div>

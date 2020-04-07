@@ -2,18 +2,22 @@
   <div>
     <RwvListErrors :errors="errors" />
     <form class="card comment-form" @submit.prevent="onSubmit(slug, comment)">
-      <div class="card-block">
+      <div class="my-2">
         <textarea
-          class="form-control"
+          class="bg-gray-200 appearance-none border-2 border-border-color-primary rounded-md bg-background-primary w-full py-2 px-4 text-copy-primary leading-tight focus:outline-none focus:bg-background-primary focus:border-blue-500"
           v-model="comment"
           placeholder="Write a comment..."
-          rows="3"
+          rows="2"
         >
         </textarea>
       </div>
-      <div class="card-footer">
-        <img :src="userImage" class="comment-author-img" />
-        <button class="btn btn-sm btn-primary">Post Comment</button>
+      <div class="flex items-center justify-end my-4">
+        <img :src="userImage" class="h-8 w-8 rounded-full object-cover mr-2" />
+        <button
+          class="btn btn-sm bg-blue-500 px-4 py-1 text-white rounded-lg focus:outline-none"
+        >
+          Post Comment
+        </button>
       </div>
     </form>
   </div>

@@ -1,14 +1,20 @@
 <template>
-  <footer>
-    <div class="container">
-      <router-link class="logo-font" :to="{ name: 'home', params: {} }">
-        conduit
+  <footer
+    class="bg-background-secondary border-t border-border-color-primary shadow py-2"
+  >
+    <div class="flex justify-center text-center bg-background-secondary">
+      <router-link class="text-blue-500" :to="{ name: 'home', params: {} }">
+        Clone VK
       </router-link>
-      <span class="attribution">
-        An interactive learning project from
-        <a rel="noopener noreferrer" target="blank" href="https://thinkster.io"
-          >Thinkster</a
-        >. Code &amp; design licensed under MIT.
+      <span class="ml-2 text-copy-primary">
+        This is project clone on original repository
+        <a
+          rel="noopener noreferrer"
+          class="text-blue-500"
+          target="blank"
+          href="https://github.com/gothinkster/vue-realworld-example-app"
+          >Github</a
+        >
       </span>
     </div>
   </footer>

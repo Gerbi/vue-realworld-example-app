@@ -1,5 +1,5 @@
 <template>
-  <div class="article-page">
+  <div class="bg-background-secondary rounded-lg p-4 mb-4">
     <div class="banner">
       <div class="container">
         <h1>{{ article.title }}</h1>

@@ -37,14 +37,31 @@
               <div class="items-center justify-between py-2 md:flex">
                 <span
                   class="flex items-center text-lg font-semibold text-copy-primary focus:outline-none"
+                  v-if="!isAuthenticated"
+                >
+                  <p v-if="openTab === 0">Home</p>
+                  <p v-if="openTab === 12">Sign In</p>
+                  <p v-if="openTab === 13">Sign Up</p>
+                  <svg
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    class="w-5 h-5 ml-1 text-blue-600"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </span>
+                <span
+                  v-else
+                  class="flex items-center text-lg font-semibold text-copy-primary focus:outline-none"
                 >
                   <p v-if="openTab === 0">Feed</p>
                   <p v-if="openTab === 1">{{ currentUser.username }}</p>
                   <p v-if="openTab === 2">Feed</p>
                   <p v-if="openTab === 3">New Post</p>
-                  <p v-if="openTab === 11">Home</p>
-                  <p v-if="openTab === 12">Sign In</p>
-                  <p v-if="openTab === 13">Sign Up</p>
                   <svg
                     fill="currentColor"
                     viewBox="0 0 20 20"
@@ -153,6 +170,30 @@
               </form>
             </div>
           </div>
+        </div>
+        <div class="flex justify-between px-4 py-1 shadow-sm md:hidden">
+          <router-link to="/" class="flex items-center text-xl font-semibold">
+            <svg
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              class="w-8 h-8 text-blue-600"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </router-link>
+          <button
+            class="py-2 text-gray-500 hover:text-blue-600 focus:outline-none"
+          >
+            <svg viewBox="0 0 24 24" class="fill-current h-7 w-7">
+              <path
+                d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -394,57 +435,61 @@
                 </span>
               </div>
             </li>
-            <router-link to="/">
-              <div
-                class="flex items-center justify-between px-3 py-2 mt-1 -mx-3 text-sm font-medium rounded-lg focus:outline-none button-hover button-hover:hover"
-                v-on:click="toggleTabs(5)"
-                v-bind:class="{
-                  'text-gray-600 bg-vkbody': openTab !== 5,
-                  'text-gray-700 bg-background-senary': openTab === 5
-                }"
-              >
-                <span class="inline-flex items-center">
-                  <svg
-                    viewBox="0 0 24 24"
-                    class="w-6 h-6 text-blue-500 fill-current"
-                  >
-                    <path
-                      d="M9 12A5 5 0 1 1 9 2a5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 11a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2a1 1 0 0 1-2 0v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2zm1-5a1 1 0 0 1 0-2 5 5 0 0 1 5 5v2a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3zm-2-4a1 1 0 0 1 0-2 3 3 0 0 0 0-6 1 1 0 0 1 0-2 5 5 0 0 1 0 10z"
-                    />
-                  </svg>
-                  <span class="ml-4 text-gray-800 text-copy-primary"
-                    >Communities</span
-                  >
-                </span>
-              </div>
-            </router-link>
-            <router-link class="w-full" :to="{ name: 'settings' }">
-              <div
-                class="flex items-center justify-between px-3 py-2 mt-1 -mx-3 text-sm font-medium rounded-lg focus:outline-none button-hover button-hover:hover"
-                v-on:click="toggleTabs(5)"
-                v-bind:class="{
-                  'text-gray-600 bg-vkbody': openTab !== 5,
-                  'text-gray-700 bg-background-senary': openTab === 5
-                }"
-              >
-                <span class="inline-flex items-center">
-                  <svg
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    class="w-6 h-6 text-blue-500"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span class="ml-4 text-gray-800 text-copy-primary"
-                    >Settings</span
-                  >
-                </span>
-              </div>
-            </router-link>
+            <li>
+              <router-link to="/">
+                <div
+                  class="flex items-center justify-between px-3 py-2 mt-1 -mx-3 text-sm font-medium rounded-lg focus:outline-none button-hover button-hover:hover"
+                  v-on:click="toggleTabs(5)"
+                  v-bind:class="{
+                    'text-gray-600 bg-vkbody': openTab !== 5,
+                    'text-gray-700 bg-background-senary': openTab === 5
+                  }"
+                >
+                  <span class="inline-flex items-center">
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="w-6 h-6 text-blue-500 fill-current"
+                    >
+                      <path
+                        d="M9 12A5 5 0 1 1 9 2a5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 11a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2a1 1 0 0 1-2 0v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2zm1-5a1 1 0 0 1 0-2 5 5 0 0 1 5 5v2a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3zm-2-4a1 1 0 0 1 0-2 3 3 0 0 0 0-6 1 1 0 0 1 0-2 5 5 0 0 1 0 10z"
+                      />
+                    </svg>
+                    <span class="ml-4 text-gray-800 text-copy-primary"
+                      >Communities</span
+                    >
+                  </span>
+                </div>
+              </router-link>
+            </li>
+            <li>
+              <router-link class="w-full" :to="{ name: 'settings' }">
+                <div
+                  class="flex items-center justify-between px-3 py-2 mt-1 -mx-3 text-sm font-medium rounded-lg focus:outline-none button-hover button-hover:hover"
+                  v-on:click="toggleTabs(5)"
+                  v-bind:class="{
+                    'text-gray-600 bg-vkbody': openTab !== 5,
+                    'text-gray-700 bg-background-senary': openTab === 5
+                  }"
+                >
+                  <span class="inline-flex items-center">
+                    <svg
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      class="w-6 h-6 text-blue-500"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="ml-4 text-gray-800 text-copy-primary"
+                      >Settings</span
+                    >
+                  </span>
+                </div>
+              </router-link>
+            </li>
           </ul>
         </div>
       </div>

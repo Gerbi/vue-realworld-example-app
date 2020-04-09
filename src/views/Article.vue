@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-background-secondary rounded-lg p-4 mb-4">
+  <div class="bg-background-secondary sm:rounded-lg p-4 mb-4">
     <div class="banner">
       <div class="container">
-        <h1>{{ article.title }}</h1>
+        <h1 class="textxl font-medium">{{ article.title }}</h1>
         <RwvArticleMeta :article="article" :actions="true"></RwvArticleMeta>
       </div>
     </div>
@@ -32,10 +32,14 @@
             :userImage="currentUser.image"
           >
           </RwvCommentEditor>
-          <p v-else>
-            <router-link :to="{ name: 'login' }">Sign in</router-link>
+          <p v-else class="text-copy-primary my-10 text-center">
+            <router-link class="text-blue-500" :to="{ name: 'login' }"
+              >Sign in</router-link
+            >
             or
-            <router-link :to="{ name: 'register' }">sign up</router-link>
+            <router-link class="text-blue-500" :to="{ name: 'register' }"
+              >sign up</router-link
+            >
             to add comments on this article.
           </p>
           <RwvComment

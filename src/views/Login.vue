@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 mb-10 rounded-lg bg-background-secondary">
+  <div class="p-4 mb-10 sm:rounded-lg bg-background-secondary">
     <div class="container page">
       <div class="row">
         <div>

@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center">
       <div class="flex">
         <router-link
-          class="mr-3"
+          class="mr-3 bg-gray-500 rounded-full"
           :to="{
             name: 'profile',
             params: { username: article.author.username }

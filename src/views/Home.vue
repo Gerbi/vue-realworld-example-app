@@ -41,7 +41,7 @@
             </div>
             <router-view></router-view>
           </div>
-          <div class="bg-background-secondary rounded-lg p-4">
+          <div class="bg-background-secondary rounded-lg p-4 mb-10">
             <div class="sidebar">
               <p class="text-copy-primary">Popular Tags</p>
               <div class="flex flex-wrap">

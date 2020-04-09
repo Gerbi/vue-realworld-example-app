@@ -2,14 +2,14 @@
   <div class="mb-4">
     <div
       v-if="isLoading"
-      class="text-center bg-white py-12 text-copy-primary text-xl"
+      class="text-center bg-background-secondary py-12 text-copy-primary text-xl"
     >
       Loading articles...
     </div>
     <div v-else>
       <div
         v-if="articles.length === 0"
-        class="text-center bg-white py-12 text-copy-primary text-xl"
+        class="text-center bg-background-secondary py-12 text-copy-primary text-xl"
       >
         No articles are here... yet.
       </div>

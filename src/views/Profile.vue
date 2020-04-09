@@ -4,18 +4,15 @@
       <div class="container">
         <div class="row">
           <div class="bg-background-secondary rounded-lg">
-            <div class="p-4">
-              <img
-                :src="profile.image"
-                class="rounded-lg object-cover text-center"
-              />
-              <h4
-                class="text-copy-primary text-center text-lg font-semibold my-2"
-              >
-                {{ profile.username }}
-              </h4>
-              <p>{{ profile.bio }}</p>
+            <div class="p-4 flex items-center justify-center">
+              <img :src="profile.image" class="rounded-lg object-cover" />
             </div>
+            <h4
+              class="text-copy-primary text-center text-lg font-semibold my-2"
+            >
+              {{ profile.username }}
+            </h4>
+            <p>{{ profile.bio }}</p>
             <div v-if="isCurrentUser()" class="px-4 pb-4">
               <router-link
                 class="block w-full px-4 py-2 pl-10 flex items-center justify-center text-sm font-medium text-center text-copy-secondary bg-background-senary rounded-lg focus:outline-none focus:bg-gray-200"

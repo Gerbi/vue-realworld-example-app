@@ -77,7 +77,10 @@
               </div>
             </div>
             <Theme :theme="theme" @themeChanged="updateTheme" />
+
+            <div v-if="!isAuthenticated"></div>
             <div
+              v-else
               class="items-center hidden xl:max-w-xs md:block md:flex md:relative"
             >
               <form>

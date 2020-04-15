@@ -2,7 +2,7 @@
   <!-- eslint-disable max-len -->
   <a
     href="#"
-    class="flex rounded-md md:rounded-none bg-background-tertiary py-2 md:py-0 md:bg-background-secondary focus:outline-none hover:bg-blue-600 px-10 md:px-3 md:hover:bg-transparent items-center justify-center cursor-pointer text-copy-primary"
+    class="flex rounded-md md:rounded-none  py-2 md:py-0 md:bg-background-secondary focus:outline-none px-4 md:hover:bg-transparent items-center justify-center cursor-pointer text-copy-primary"
     @click.prevent="toggleTheme"
   >
     <svg
@@ -34,7 +34,6 @@
         d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
       />
     </svg>
-    <p class="md:hidden text-copy-primary ml-2">Dark Mode</p>
   </a>
 </template>
 
